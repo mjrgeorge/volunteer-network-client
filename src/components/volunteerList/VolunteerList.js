@@ -15,18 +15,12 @@ const VolunteerList = () => {
                         <img style={{height: '70px'}} src={logo} alt="log"/>
                     </div>
                     <div className="m-4">
-                        <Link>
-                            <img style={{height: '20px'}} src={user} alt="User"/>
-                            Volunteer register list
-                        </Link>
+                        <Link><img style={{height: '20px'}} src={user} alt="User"/> Volunteer register list </Link>
                     </div>
-                    <Button className="ml-4" variant="light">
-                        <img style={{height: '20px'}} src={plus} alt="Plus"/>
-                        Add Event
-                    </Button>
+                    <Button className="ml-4" variant="light"><img style={{height: '20px'}} src={plus} alt="Plus"/> Add Event</Button>
                 </div>
                 <div className="col-md-9">
-                    <h3 className="m-5">Volunteer register list</h3>
+                    <h3 className="m-5">Volunteer register list </h3>
                     <Table style={{border: '15px solid white', borderRadius:'10px'}} striped bordered hover size="sm">
                         <thead className="text-center">
                             <tr>

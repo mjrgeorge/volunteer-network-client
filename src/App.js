@@ -11,6 +11,7 @@ import NotMatch from './components/notMatch/NotMatch';
 import RegistrationForm from './components/registrationForm/RegistrationForm';
 import UserActivities from './components/userActivities/UserActivities';
 import VolunteerList from './components/volunteerList/VolunteerList';
+import AddEvent from './components/addEvent/AddEvent';
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route path="/volunteer">
             <VolunteerList/>
+          </Route>
+          <Route path="/event">
+            <AddEvent/>
           </Route>
           <Route exact path="/">
             <Home/>
