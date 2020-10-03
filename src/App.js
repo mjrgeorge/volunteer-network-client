@@ -6,12 +6,27 @@ import {
   Route
 } from "react-router-dom";
 import Home from './components/home/Home';
+import Login from './components/login/Login';
+import NotMatch from './components/notMatch/NotMatch';
 
 function App() {
   return (
-    <div>
-      <Home/>
-    </div>
+    <Router>
+      <Switch>
+          <Route path="/home">
+            <Home/>
+          </Route>
+          <Route path="/login">
+            <Login/>
+          </Route>
+          <Route exact path="/">
+            <Home/>
+          </Route>
+          <Route path="*">
+            <NotMatch/>
+          </Route>
+        </Switch>
+    </Router>
   );
 }
 

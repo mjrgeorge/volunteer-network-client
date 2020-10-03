@@ -5,7 +5,6 @@ import JobCategories from '../jobCategories/JobCategories';
 
 const Home = () => {
     const [jobs, setJobs] = useState(JobData);
-    console.log(jobs);
     return (
         <div className="container">
                 <Header/>
