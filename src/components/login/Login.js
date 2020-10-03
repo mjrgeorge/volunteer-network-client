@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import logo from '../../images/logo.png';
+import google from '../../images/google.png';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebaseConfig';
@@ -12,6 +13,7 @@ firebase.initializeApp(firebaseConfig);
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [user, setUser] = useState({
+        isSignedIn: false,
         name: "",
         email: "",
         photo: ""
@@ -27,6 +29,7 @@ const Login = () => {
         .then(result => {
             const {displayName, email, photoURL} = result.user;
             const signedInUser = {
+                isSignedIn: true,
                 name: displayName,
                 email: email,
                 photo: photoURL
@@ -49,9 +52,10 @@ const Login = () => {
                 </div>
             </Link>
             <div className="d-flex justify-content-center align-items-center">
-                <div className="m-5 p-5 text-center" style={{width: '50%', border: '5px solid lightGray', borderRadius: '10px'}}>
+                <div className="m-5 p-5 text-center" style={{width: '50%', border: '5px solid lightGray', borderRadius: '5px'}}>
                     <h2>Login With</h2>
-                    <Button onClick={handleSignIn} className="rounded-pill p-3 m-4" block>
+                    <Button onClick={handleSignIn} className="rounded-pill p-2 m-4" block>
+                        <img className="pr-3" style={{width: '50px'}} src={google} alt="icon"/>
                         Continue with Google
                     </Button>
                     <p>Don't have an account? <Link>Create an account</Link></p>
