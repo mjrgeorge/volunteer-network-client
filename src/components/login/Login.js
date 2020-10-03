@@ -43,7 +43,7 @@ const Login = () => {
             console.log(errorMessage);
           });
     };
-    console.log(user, loggedInUser);
+    
     return (
         <div className="container bg-light pt-5">
             <Link to="/home">
@@ -58,7 +58,7 @@ const Login = () => {
                         <img className="pr-3" style={{width: '50px'}} src={google} alt="icon"/>
                         Continue with Google
                     </Button>
-                    <p>Don't have an account? <Link>Create an account</Link></p>
+                    <p>Don't have an account? <Link to="#">Create an account</Link></p>
                 </div>
             </div>
         </div>

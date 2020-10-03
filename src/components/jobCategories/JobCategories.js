@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 const JobCategories = ({jobs}) => {
     const history = useHistory();
     const handleJobs = ()=> {
-        history.push(`/registration`);
+        history.push(`/registration/${jobs.title}`);
     };
     return (
         <div onClick={handleJobs} className="col-md-3" style={{cursor:'pointer'}}>

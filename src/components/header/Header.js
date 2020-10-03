@@ -18,7 +18,7 @@ const Header = () => {
                         <Link className="m-3 h5" to="#">Donation</Link>
                         <Link className="m-3 h5" to="/event">Event</Link>
                         <Link className="m-3 h5" to="#">Blog</Link>
-                        <Link className="text-white m-3" to="/registration">
+                        <Link className="text-white m-3" to="/registration/jobTitle">
                             <Button className="bg-info">Register</Button>
                         </Link>
                         <Link className="text-white m-3" to="/volunteer">
