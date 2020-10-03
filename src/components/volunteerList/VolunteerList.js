@@ -26,8 +26,8 @@ const VolunteerList = () => {
                     </Button>
                 </div>
                 <div className="col-md-9">
-                    <h3 className="mt-5">Volunteer register list</h3>
-                    <Table style={{border: '15px solid white', borderRadius:'10px'}} striped bordered hover>
+                    <h3 className="m-5">Volunteer register list</h3>
+                    <Table style={{border: '15px solid white', borderRadius:'10px'}} striped bordered hover size="sm">
                         <thead className="text-center">
                             <tr>
                                 <th>Name</th>
@@ -47,8 +47,6 @@ const VolunteerList = () => {
                                     <img className="rounded bg-danger p-1" style={{height: '30px', cursor: 'pointer'}} src={trash} alt="User"/>
                                 </td>
                             </tr>
-                        </tbody>
-                        <tbody>
                             <tr>
                                 <td>Jubayer Rahman</td>
                                 <td>mjrgeorge@gmail.com</td>
@@ -58,8 +56,6 @@ const VolunteerList = () => {
                                     <img className="rounded bg-danger p-1" style={{height: '30px', cursor: 'pointer'}} src={trash} alt="User"/>
                                 </td>
                             </tr>
-                        </tbody>
-                        <tbody>
                             <tr>
                                 <td>Jubayer Rahman</td>
                                 <td>mjrgeorge@gmail.com</td>
@@ -69,8 +65,6 @@ const VolunteerList = () => {
                                     <img className="rounded bg-danger p-1" style={{height: '30px', cursor: 'pointer'}} src={trash} alt="User"/>
                                 </td>
                             </tr>
-                        </tbody>
-                        <tbody>
                             <tr>
                                 <td>Jubayer Rahman</td>
                                 <td>mjrgeorge@gmail.com</td>
@@ -80,8 +74,6 @@ const VolunteerList = () => {
                                     <img className="rounded bg-danger p-1" style={{height: '30px', cursor: 'pointer'}} src={trash} alt="User"/>
                                 </td>
                             </tr>
-                        </tbody>
-                        <tbody>
                             <tr>
                                 <td>Jubayer Rahman</td>
                                 <td>mjrgeorge@gmail.com</td>
@@ -91,8 +83,6 @@ const VolunteerList = () => {
                                     <img className="rounded bg-danger p-1" style={{height: '30px', cursor: 'pointer'}} src={trash} alt="User"/>
                                 </td>
                             </tr>
-                        </tbody>
-                        <tbody>
                             <tr>
                                 <td>Jubayer Rahman</td>
                                 <td>mjrgeorge@gmail.com</td>
@@ -102,8 +92,6 @@ const VolunteerList = () => {
                                     <img className="rounded bg-danger p-1" style={{height: '30px', cursor: 'pointer'}} src={trash} alt="User"/>
                                 </td>
                             </tr>
-                        </tbody>
-                        <tbody>
                             <tr>
                                 <td>Jubayer Rahman</td>
                                 <td>mjrgeorge@gmail.com</td>
