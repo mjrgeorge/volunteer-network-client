@@ -1,9 +1,14 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
 const JobCategories = ({job}) => {
+    const history = useHistory();
+    const handleJobs = ()=> {
+        history.push(`/registration`);
+    };
     return (
-        <div className="col-md-3">
+        <div onClick={handleJobs} className="col-md-3" style={{cursor:'pointer'}}>
             <Card className="mb-3">
                 <Card.Img variant="top" src={require(`../../images/${job.image}`)} alt="Image"/>
                 <h4 className="text-center p-2">{job.title}</h4>

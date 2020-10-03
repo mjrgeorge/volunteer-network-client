@@ -2,24 +2,27 @@ import React from 'react';
 import { Button, Card, Nav } from 'react-bootstrap';
 import logo from '../../images/logo.png';
 import extra from '../../images/extraVolunteer.png';
+import { Link } from 'react-router-dom';
 
 const UserActivities = () => {
     return (
         <div className="container bg-light">
             <div className="row mt-4 mb-5">
                 <div className="col-md-7">
-                    <img style={{ height:"60px"}} src={logo} alt="Logo"/>
+                    <Link to="/home">
+                        <img style={{ height:"60px"}} src={logo} alt="Logo"/>
+                    </Link>
                 </div>
                 <div className="col-md-5">
-                    <Nav className="justify-content-center" activeKey="/#">
+                    <Nav className="justify-content-center" activeKey="/home">
                         <Nav.Item>
-                            <Nav.Link className="text-dark" href="/#">Home</Nav.Link>
+                            <Nav.Link className="text-dark" href="/home">Home</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link className="text-dark" href="#">Donation</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link className="text-dark" href="#">Event</Nav.Link>
+                            <Nav.Link className="text-dark" href="/event">Event</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link className="text-dark" href="#">Blog</Nav.Link>

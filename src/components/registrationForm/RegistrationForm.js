@@ -1,13 +1,16 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
 
 const RegistrationForm = () => {
     return (
         <div className="container bg-light p-3">
-            <div style={{ height:'80px'}} className="d-flex justify-content-center">
-                <img className="w-25" src={logo} alt="log"/>
-            </div>
+            <Link to="/home">
+                <div style={{ height:'80px'}} className="d-flex justify-content-center">
+                    <img className="w-25" src={logo} alt="log"/>
+                </div>
+            </Link>
             <div className="d-flex justify-content-center align-items-center m-4">
                 <div className="p-5 text-center" style={{width: '50%', border: '3px solid lightGray', borderRadius: '10px'}}>
                     <h3 className="mb-3">Registration as a Volunteer</h3>
@@ -23,7 +26,9 @@ const RegistrationForm = () => {
                         <input className="form-control" type="text" name="organization" placeholder="Organization books at the library" required/>
                         <br/>
                     </form>
-                    <Button type="submit" className="" block>Registration</Button>
+                    <Link to="/activities" className="text-decoration-none">
+                        <Button type="submit" block>Registration</Button>
+                    </Link>
                 </div>
             </div>
         </div>

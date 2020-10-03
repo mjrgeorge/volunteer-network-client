@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Form, FormControl, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
 
 const Header = () => {
@@ -7,29 +8,31 @@ const Header = () => {
         <div>
             <div className="row">
                 <div className="col-md-4 pl-5">
-                    <img style={{ height:"60px"}} src={logo} alt="Logo"/>
+                    <Link to="/home">
+                        <img style={{ height:"60px"}} src={logo} alt="Logo"/>
+                    </Link>
                 </div>
                 <div className="col-md-8">
                     <Nav className="justify-content-center" activeKey="/#">
                         <Nav.Item>
-                            <Nav.Link href="/#">Home</Nav.Link>
+                            <Nav.Link href="/home">Home</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link href="#">Donation</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="#">Event</Nav.Link>
+                            <Nav.Link href="/event">Event</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link href="#">Blog</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link className="text-white" href="#">
+                            <Nav.Link className="text-white" href="/registration">
                                 <Button className="bg-info">Register</Button>
                             </Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link className="text-white" href="#">
+                            <Nav.Link className="text-white" href="/volunteer">
                                 <Button className="bg-dark">Admin</Button>
                             </Nav.Link>
                         </Nav.Item>

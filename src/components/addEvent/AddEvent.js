@@ -11,10 +11,12 @@ const AddEvent = () => {
             <div className="row">
                 <div className="col-md-3">
                     <div className="m-4">
+                    <Link to="/home">
                         <img style={{height: '70px'}} src={logo} alt="log"/>
+                    </Link>
                     </div>
                     <div className="m-4">
-                        <Link><img style={{height: '20px'}} src={user} alt="User"/> Volunteer register list </Link>
+                        <Link to="/volunteer" className="text-decoration-none"><img style={{height: '20px'}} src={user} alt="User"/> Volunteer register list </Link>
                     </div>
                     <Button className="ml-4" variant="light"><img style={{height: '20px'}} src={plus} alt="Plus"/> Add Event </Button>
                 </div>
