@@ -10,6 +10,7 @@ import Login from './components/login/Login';
 import NotMatch from './components/notMatch/NotMatch';
 import RegistrationForm from './components/registrationForm/RegistrationForm';
 import UserActivities from './components/userActivities/UserActivities';
+import VolunteerList from './components/volunteerList/VolunteerList';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route path="/activities">
             <UserActivities/>
+          </Route>
+          <Route path="/volunteer">
+            <VolunteerList/>
           </Route>
           <Route exact path="/">
             <Home/>

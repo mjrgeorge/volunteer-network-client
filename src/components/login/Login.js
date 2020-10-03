@@ -5,8 +5,8 @@ import logo from '../../images/logo.png';
 
 const Login = () => {
     return (
-        <div>
-            <div style={{ height:'80px'}} className="d-flex justify-content-center m-5">
+        <div className="container bg-light pt-5">
+            <div style={{ height:'80px'}} className="d-flex justify-content-center">
                 <img className="w-25" src={logo} alt="log"/>
             </div>
             <div className="d-flex justify-content-center align-items-center">

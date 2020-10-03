@@ -6,7 +6,7 @@ import JobCategories from '../jobCategories/JobCategories';
 const Home = () => {
     const [jobs, setJobs] = useState(JobData);
     return (
-        <div className="container">
+        <div className="container bg-light pt-4">
                 <Header/>
             <div className="row">
                 {

@@ -5,7 +5,7 @@ import logo from '../../images/logo.png';
 
 const RegistrationForm = () => {
     return (
-        <div className="m-3">
+        <div className="container bg-light p-3">
             <div style={{ height:'80px'}} className="d-flex justify-content-center">
                 <img className="w-25" src={logo} alt="log"/>
             </div>
