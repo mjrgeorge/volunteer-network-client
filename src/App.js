@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
@@ -12,37 +12,43 @@ import RegistrationForm from './components/registrationForm/RegistrationForm';
 import UserActivities from './components/userActivities/UserActivities';
 import VolunteerList from './components/volunteerList/VolunteerList';
 import AddEvent from './components/addEvent/AddEvent';
+import PrivateRoute from './components/privateRoute/PrivateRoute';
+
+export const UserContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
-    <Router>
-      <Switch>
-          <Route path="/home">
-            <Home/>
-          </Route>
-          <Route path="/login">
-            <Login/>
-          </Route>
-          <Route path="/registration">
-            <RegistrationForm/>
-          </Route>
-          <Route path="/activities">
-            <UserActivities/>
-          </Route>
-          <Route path="/volunteer">
-            <VolunteerList/>
-          </Route>
-          <Route path="/event">
-            <AddEvent/>
-          </Route>
-          <Route exact path="/">
-            <Home/>
-          </Route>
-          <Route path="*">
-            <NotMatch/>
-          </Route>
-        </Switch>
-    </Router>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <Router>
+        <Switch>
+            <Route path="/home">
+              <Home/>
+            </Route>
+            <Route path="/login">
+              <Login/>
+            </Route>
+            <PrivateRoute path="/registration">
+              <RegistrationForm/>
+            </PrivateRoute>
+            <PrivateRoute path="/activities">
+              <UserActivities/>
+            </PrivateRoute>
+            <PrivateRoute path="/volunteer">
+              <VolunteerList/>
+            </PrivateRoute>
+            <PrivateRoute path="/event">
+              <AddEvent/>
+            </PrivateRoute>
+            <Route exact path="/">
+              <Home/>
+            </Route>
+            <Route path="*">
+              <NotMatch/>
+            </Route>
+          </Switch>
+      </Router>
+    </UserContext.Provider>
   );
 }
 
