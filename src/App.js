@@ -1,9 +1,16 @@
 import React from 'react';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import Home from './components/home/Home';
 
 function App() {
   return (
     <div>
-      <h1>I am waiting for ready to project start....</h1>
+      <Home/>
     </div>
   );
 }
