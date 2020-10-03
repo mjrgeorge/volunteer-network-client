@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import JobData from '../../jobData/JobData';
 import Header from '../header/Header';
+import JobCategories from '../jobCategories/JobCategories';
 
 const Home = () => {
+    const [jobs, setJobs] = useState(JobData);
+    console.log(jobs);
     return (
-        <div>
-            <div className="container">
+        <div className="container">
                 <Header/>
+            <div className="row">
+                {
+                    jobs.map((job) =><JobCategories job={job} key={job.key}></JobCategories>)
+                }
             </div>
         </div>
     );
