@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
 
 const RegistrationForm = () => {
