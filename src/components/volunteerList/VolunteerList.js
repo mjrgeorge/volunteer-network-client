@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Button, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
 import user from '../../images/users.png';
 import plus from '../../images/plus.png';
 import trash from '../../images/trash.png';
+import { UserContext } from '../../App';
 
 const VolunteerList = () => {
+    const [loggedInUser, setLoggedInUser, usersInfo, setUsersInfo] = useContext(UserContext);
+    useEffect(()=>{
+        fetch('http://localhost:5000/allVolunteers')
+        .then(response =>response.json())
+        .then(data =>setUsersInfo(data))
+        .catch(err =>console.log(err))
+    }, [])
     return (
         <div className="container bg-light">
             <div className="row">
@@ -24,7 +32,7 @@ const VolunteerList = () => {
                     </Link>
                 </div>
                 <div className="col-md-9">
-                    <h3 className="m-5">Volunteer register list </h3>
+                    <h3 className="m-5">Volunteer register list {usersInfo.length} </h3>
                     <Table style={{border: '15px solid white', borderRadius:'10px'}} striped bordered hover size="sm">
                         <thead className="text-center">
                             <tr>
@@ -36,69 +44,19 @@ const VolunteerList = () => {
                             </tr>
                         </thead>
                         <tbody>
+                    {
+                        usersInfo.map(user=>
                             <tr>
-                                <td>Jubayer Rahman</td>
-                                <td>mjrgeorge@gmail.com</td>
-                                <td>22-10-2020</td>
-                                <td>Organize books at the library</td>
+                                <td>{user.name}</td>
+                                <td>{user.email}</td>
+                                <td>{user.date}</td>
+                                <td>{user.job}</td>
                                 <td className="text-center">
                                     <img className="rounded bg-danger p-1" style={{height: '30px', cursor: 'pointer'}} src={trash} alt="User"/>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Jubayer Rahman</td>
-                                <td>mjrgeorge@gmail.com</td>
-                                <td>22-10-2020</td>
-                                <td>Organize books at the library</td>
-                                <td className="text-center">
-                                    <img className="rounded bg-danger p-1" style={{height: '30px', cursor: 'pointer'}} src={trash} alt="User"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jubayer Rahman</td>
-                                <td>mjrgeorge@gmail.com</td>
-                                <td>22-10-2020</td>
-                                <td>Organize books at the library</td>
-                                <td className="text-center">
-                                    <img className="rounded bg-danger p-1" style={{height: '30px', cursor: 'pointer'}} src={trash} alt="User"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jubayer Rahman</td>
-                                <td>mjrgeorge@gmail.com</td>
-                                <td>22-10-2020</td>
-                                <td>Organize books at the library</td>
-                                <td className="text-center">
-                                    <img className="rounded bg-danger p-1" style={{height: '30px', cursor: 'pointer'}} src={trash} alt="User"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jubayer Rahman</td>
-                                <td>mjrgeorge@gmail.com</td>
-                                <td>22-10-2020</td>
-                                <td>Organize books at the library</td>
-                                <td className="text-center">
-                                    <img className="rounded bg-danger p-1" style={{height: '30px', cursor: 'pointer'}} src={trash} alt="User"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jubayer Rahman</td>
-                                <td>mjrgeorge@gmail.com</td>
-                                <td>22-10-2020</td>
-                                <td>Organize books at the library</td>
-                                <td className="text-center">
-                                    <img className="rounded bg-danger p-1" style={{height: '30px', cursor: 'pointer'}} src={trash} alt="User"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jubayer Rahman</td>
-                                <td>mjrgeorge@gmail.com</td>
-                                <td>22-10-2020</td>
-                                <td>Organize books at the library</td>
-                                <td className="text-center">
-                                    <img className="rounded bg-danger p-1" style={{height: '30px', cursor: 'pointer'}} src={trash} alt="User"/>
-                                </td>
-                            </tr>
+                            )
+                    }
                         </tbody>
                     </Table>
                 </div>

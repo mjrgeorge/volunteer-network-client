@@ -8,7 +8,7 @@ const RegistrationForm = () => {
     const {jobTitle} = useParams();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
-    const [userInfo, setUserInfo] = useState({
+    const [user, setUser] = useState({
         name: loggedInUser.name,
         email: loggedInUser.email,
         date: '',
@@ -18,19 +18,17 @@ const RegistrationForm = () => {
     });
 
     const handleChange = (e) => {
-        const newUserInfo = {...userInfo};
+        const newUserInfo = {...user};
         newUserInfo[e.target.name] = e.target.value;
-        setUserInfo(newUserInfo);
-        console.log('inner', userInfo);
+        setUser(newUserInfo);
     }
-    console.log('outer', userInfo);
 
     const history = useHistory();
     const handleSubmit =(e)=> {
         fetch('http://localhost:5000/addUser', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(userInfo)
+            body: JSON.stringify(user)
         })
         .then(response => response.json())
         .then(result =>{
@@ -53,9 +51,9 @@ const RegistrationForm = () => {
                 <div className="p-5 text-center" style={{width: '50%', border: '3px solid lightGray', borderRadius: '10px'}}>
                     <h3 className="mb-3">Registration as a Volunteer</h3>
                     <form onSubmit={handleSubmit}>
-                        <input onBlur={handleChange} className="form-control" type="text" name="name" defaultValue={`${userInfo.name}`} placeholder="Full Name" required/>
+                        <input onBlur={handleChange} className="form-control" type="text" name="name" defaultValue={`${user.name}`} placeholder="Full Name" required/>
                         <br/>
-                        <input onBlur={handleChange} className="form-control" type="email" name="email" defaultValue={`${userInfo.email}`} placeholder="Email" required/>
+                        <input onBlur={handleChange} className="form-control" type="email" name="email" defaultValue={`${user.email}`} placeholder="Email" required/>
                         <br/>
                         <input onBlur={handleChange} className="form-control" type="date" name="date" placeholder="Date" required/>
                         <br/>
