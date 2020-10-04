@@ -15,6 +15,7 @@ const VolunteerList = () => {
         .then(data =>setUsersInfo(data))
         .catch(err =>console.log(err))
     }, [])
+
     return (
         <div className="container bg-light">
             <div className="row">
@@ -49,7 +50,7 @@ const VolunteerList = () => {
                             <tr>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td>{user.date}</td>
+                                <td>{new Date(user.date).toDateString('MM/dd/yy')}</td>
                                 <td>{user.job}</td>
                                 <td className="text-center">
                                     <img className="rounded bg-danger p-1" style={{height: '30px', cursor: 'pointer'}} src={trash} alt="User"/>
