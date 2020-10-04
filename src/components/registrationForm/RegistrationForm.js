@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { UserContext } from '../../App';
@@ -8,13 +8,29 @@ const RegistrationForm = () => {
     const {jobTitle} = useParams();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
-    const data = {name: 'Asmaul husna', job: 'doctor'};
+    const [userInfo, setUserInfo] = useState({
+        name: loggedInUser.name,
+        email: loggedInUser.email,
+        date: '',
+        description: '',
+        job: jobTitle
+
+    });
+
+    const handleChange = (e) => {
+        const newUserInfo = {...userInfo};
+        newUserInfo[e.target.name] = e.target.value;
+        setUserInfo(newUserInfo);
+        console.log('inner', userInfo);
+    }
+    console.log('outer', userInfo);
+
     const history = useHistory();
-    const handleSubmit =()=> {
+    const handleSubmit =(e)=> {
         fetch('http://localhost:5000/addUser', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(data)
+            body: JSON.stringify(userInfo)
         })
         .then(response => response.json())
         .then(result =>{
@@ -23,7 +39,7 @@ const RegistrationForm = () => {
             }
         })
         .catch(err => console.log(err));
-
+        e.preventDefault();
     };
 
     return (
@@ -36,18 +52,18 @@ const RegistrationForm = () => {
             <div className="d-flex justify-content-center align-items-center m-4">
                 <div className="p-5 text-center" style={{width: '50%', border: '3px solid lightGray', borderRadius: '10px'}}>
                     <h3 className="mb-3">Registration as a Volunteer</h3>
-                    <form>
-                        <input className="form-control" type="text" name="name" defaultValue={`${loggedInUser.name}`} placeholder="Full Name" required/>
+                    <form onSubmit={handleSubmit}>
+                        <input onBlur={handleChange} className="form-control" type="text" name="name" defaultValue={`${userInfo.name}`} placeholder="Full Name" required/>
                         <br/>
-                        <input className="form-control" type="email" name="email" defaultValue={`${loggedInUser.email}`} placeholder="Email" required/>
+                        <input onBlur={handleChange} className="form-control" type="email" name="email" defaultValue={`${userInfo.email}`} placeholder="Email" required/>
                         <br/>
-                        <input className="form-control" type="date" name="date" placeholder="Date" required/>
+                        <input onBlur={handleChange} className="form-control" type="date" name="date" placeholder="Date" required/>
                         <br/>
-                        <input className="form-control" type="text" name="description" placeholder="Description" required/>
+                        <input onBlur={handleChange} className="form-control" type="text" name="description" placeholder="Description" required/>
                         <br/>
-                        <input className="form-control" type="text" name="jobs" defaultValue={`${jobTitle}`} placeholder="Organization books at the library" required/>
+                        <input onBlur={handleChange} className="form-control" type="text" name="job" defaultValue={`${jobTitle}`} placeholder="Organization books at the library" required/>
                         <br/>
-                        <Button onClick={handleSubmit} block>Registration</Button>
+                        <Button type="submit" block>Registration</Button>
                     </form>
                 </div>
             </div>
