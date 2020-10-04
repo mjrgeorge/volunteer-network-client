@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
-import extra from '../../images/extraVolunteer.png';
 
 const UserActivitiesDetail = (props) => {
     const {job, date} = props.tasks;
@@ -9,7 +8,7 @@ const UserActivitiesDetail = (props) => {
             <div className="card mb-3">
                 <div className="row no-gutters">
                     <div className="col-md-4">
-                    <Card.Img src={extra} alt="Logo"/>
+                    <Card.Img src='' alt="Image"/>
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">

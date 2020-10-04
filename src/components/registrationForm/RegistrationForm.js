@@ -44,7 +44,7 @@ const RegistrationForm = () => {
         <div className="container bg-light p-3">
             <Link to="/home">
                 <div style={{ height:'80px'}} className="d-flex justify-content-center">
-                    <img className="w-25" src={logo} alt="log"/>
+                    <img className="w-25" src={logo} alt="logo"/>
                 </div>
             </Link>
             <div className="d-flex justify-content-center align-items-center m-4">

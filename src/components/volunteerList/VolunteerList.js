@@ -33,7 +33,7 @@ const VolunteerList = () => {
                     </Link>
                 </div>
                 <div className="col-md-9">
-                    <h3 className="m-5">Volunteer register list {usersInfo.length} </h3>
+                    <h3 className="m-5">Volunteer register list</h3>
                     <Table style={{border: '15px solid white', borderRadius:'10px'}} striped bordered hover size="sm">
                         <thead className="text-center">
                             <tr>
