@@ -16,7 +16,8 @@ const Login = () => {
         isSignedIn: false,
         name: "",
         email: "",
-        photo: ""
+        photo: "",
+        error: "",
     });
 
     const history = useHistory();
@@ -40,7 +41,7 @@ const Login = () => {
           })
           .catch(error => {
             const errorMessage = error.message;
-            console.log(errorMessage);
+            setUser({error:errorMessage});
           });
     };
     
@@ -51,14 +52,15 @@ const Login = () => {
                     <img className="w-25" src={logo} alt="log"/>
                 </div>
             </Link>
-            <div className="d-flex justify-content-center align-items-center">
+            <div className="d-flex justify-content-center">
                 <div className="m-5 p-5 text-center" style={{width: '50%', border: '5px solid lightGray', borderRadius: '5px'}}>
                     <h2>Login With</h2>
-                    <Button onClick={handleSignIn} className="rounded-pill p-2 m-4" block>
+                    <Button onClick={handleSignIn} className="rounded-pill bg-light text-dark p-2 mt-4 mb-4" block>
                         <img className="pr-3" style={{width: '50px'}} src={google} alt="icon"/>
                         Continue with Google
                     </Button>
                     <p>Don't have an account? <Link to="#">Create an account</Link></p>
+                    <p className="text-danger">{user.error}</p>
                 </div>
             </div>
         </div>

@@ -31,27 +31,29 @@ const VolunteerList = () => {
     return (
         <div className="container bg-light">
             <div className="row">
-                <div className="col-md-3">
-                    <div className="m-4">
+                <div className="col-md-2">
+                    <div className="mt-5 mb-5">
                         <Link to="/home">
-                            <img style={{height: '70px'}} src={logo} alt="log"/>
+                            <img style={{height: '70px', width: '200px'}} src={logo} alt="log"/>
                         </Link>
                     </div>
-                    <div className="m-4">
-                        <Link to="/volunteer"><img style={{height: '20px'}} src={user} alt="User"/> Volunteer register list </Link>
+                    <div>
+                        <Link to="/volunteer"><img style={{height: '20px'}} src={user} alt="User"/> Volunteer register </Link>
                     </div>
-                    <Link to="/event" className="text-decoration-none">
-                        <Button className="ml-4" variant="light"><img style={{height: '20px'}} src={plus} alt="Plus"/> Add Event</Button>
-                    </Link>
+                    <div className="mt-4">
+                        <Link to="/event">
+                            <Button className="ml-1" variant="light"><img style={{height: '20px'}} src={plus} alt="Plus"/> Add Event</Button>
+                        </Link>
+                    </div>
                 </div>
-                <div className="col-md-9">
-                    <h3 className="m-5">Volunteer Register List: {usersInfo.length} </h3>
-                    <Table style={{border: '15px solid white', borderRadius:'10px'}} striped bordered hover size="sm">
-                        <thead className="text-center">
-                            <tr>
+                <div className="col-md-10">
+                    <h3 className="m-5">Volunteer Registered List: {usersInfo.length} </h3>
+                    <Table className="text-center" style={{border: '15px solid white', borderRadius:'10px'}} striped bordered hover size="sm">
+                        <thead>
+                            <tr className="h5">
                                 <th>Name</th>
                                 <th>First Email Id</th>
-                                <th>Registration Date</th>
+                                <th>Date</th>
                                 <th>Volunteer</th>
                                 <th>Action</th>
                             </tr>
@@ -59,7 +61,7 @@ const VolunteerList = () => {
                         <tbody>
                     {
                         usersInfo.map(user=>
-                            <tr id={`${user._id}`}>
+                            <tr id={`${user._id}`} key={user._id}>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{new Date(user.date).toDateString('MM/dd/yy')}</td>

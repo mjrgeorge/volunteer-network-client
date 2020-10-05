@@ -1,18 +1,22 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, CardDeck } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
-const JobCategories = ({jobs}) => {
+const JobCategories = (props) => {
+    const jobs = props.jobs;
     const history = useHistory();
     const handleJobs = ()=> {
         history.push(`/registration/${jobs.title}`);
     };
+
     return (
         <div onClick={handleJobs} className="col-md-3" style={{cursor:'pointer'}}>
-            <Card className="mb-3">
-                <Card.Img variant="top" src={jobs.image} alt="Image"/>
-                <h4 className="text-center p-2">{jobs.title}</h4>
-            </Card>
+            <CardDeck>
+                <Card className="mb-4 bg-dark">
+                    <Card.Img variant="top" src={jobs.image} alt="Image"/>
+                    <Card.Footer className="text-center text-white h4">{jobs.title}</Card.Footer>
+                </Card>
+            </CardDeck>
         </div>
     );
 };

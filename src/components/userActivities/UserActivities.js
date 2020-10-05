@@ -12,7 +12,7 @@ const UserActivities = () => {
         .then(response => response.json())
         .then(data=>setTasks(data))
     }, [])
-    
+
     return (
         <div className="container bg-light">
             <div className="row pt-4 mb-5">
@@ -33,7 +33,7 @@ const UserActivities = () => {
             </div>
             <div className="row">
                 {
-                    tasks.map(task =><UserActivitiesDetail tasks={task} key={task._id}></UserActivitiesDetail>)
+                    tasks.map(task =><UserActivitiesDetail task={task} key={task._id}></UserActivitiesDetail>)
                 }
             </div>
         </div>

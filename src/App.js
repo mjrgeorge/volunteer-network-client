@@ -19,9 +19,10 @@ export const UserContext = createContext();
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   const [usersInfo, setUsersInfo] = useState([]);
+  const [jobDetails, setJobDetails] = useState([]);
 
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser, usersInfo, setUsersInfo]}>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser, usersInfo, setUsersInfo, jobDetails, setJobDetails]}>
       <Router>
         <Switch>
             <Route path="/home">
@@ -42,6 +43,18 @@ function App() {
             <PrivateRoute path="/event">
               <AddEvent/>
             </PrivateRoute>
+            {/* <Route path="/registration/:jobTitle">
+              <RegistrationForm/>
+            </Route>
+            <Route path="/activities">
+              <UserActivities/>
+            </Route>
+            <Route path="/volunteer">
+              <VolunteerList/>
+            </Route>
+            <Route path="/event">
+              <AddEvent/>
+            </Route> */}
             <Route exact path="/">
               <Home/>
             </Route>

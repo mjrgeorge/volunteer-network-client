@@ -27,13 +27,13 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            <div style={{ height:"200px"}} className="d-flex justify-content-center align-items-center">
+            <div style={{ height:"50vh"}} className="d-flex justify-content-center align-items-center">
                 <div>
-                    <h1 className="text-dark mb-3">Best Food Waiting Your Belly</h1>
+                    <h1 className="text-dark m-4 display-4">I GROW BY HELPING PEOPLE IN NEED</h1>
                     <div className="d-flex justify-content-center">
                         <Form inline>
                             <FormControl type="text" placeholder="Search...."/>
-                            <Button type="submit" className="btn-info">Search</Button>
+                            <Button className="btn-info">Search</Button>
                         </Form>
                     </div>
                 </div>

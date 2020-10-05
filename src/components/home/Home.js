@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../App';
 import Header from '../header/Header';
 import JobCategories from '../jobCategories/JobCategories';
 
 const Home = () => {
-  const [jobDetails, setJobDetails] = useState([]);
+  const [loggedInUser, setLoggedInUser, usersInfo, setUsersInfo, jobDetails, setJobDetails] = useContext(UserContext);
   useEffect(() => {
     fetch('https://powerful-ravine-91496.herokuapp.com/allJobs')
     .then(response => response.json())
@@ -15,7 +16,7 @@ const Home = () => {
                 <Header/>
             <div className="row">
                 {
-                    jobDetails.map((jobs) =><JobCategories jobs={jobs} key={jobs.key}></JobCategories>)
+                    jobDetails.map((jobs) =><JobCategories jobs={jobs} key={jobs._id}></JobCategories>)
                 }
             </div>
         </div>
