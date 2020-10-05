@@ -3,8 +3,6 @@ import { Button, Card } from 'react-bootstrap';
 
 const UserActivitiesDetail = (props) => {
     const {job, date, _id, image} = props.tasks;
-    console.log(props.tasks);
-
     const handleDelete = (id) => {
         fetch(`https://powerful-ravine-91496.herokuapp.com/delete/${id}`, {
             method: 'DELETE'

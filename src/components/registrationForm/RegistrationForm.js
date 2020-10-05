@@ -21,7 +21,7 @@ const RegistrationForm = () => {
         const newUserInfo = {...user};
         newUserInfo[e.target.name] = e.target.value;
         setUser(newUserInfo);
-    }
+    };
 
     const history = useHistory();
     const handleSubmit =(e)=> {

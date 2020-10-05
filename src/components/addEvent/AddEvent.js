@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
@@ -6,6 +6,40 @@ import user from '../../images/users.png';
 import plus from '../../images/plus.png';
 
 const AddEvent = () => {
+    const [event, setEvent] = useState({
+        title: '',
+        date: '',
+        description: '',
+    });
+
+    const handleChange = (e) => {
+        const newUserInfo = {...event};
+        newUserInfo[e.target.name] = e.target.value;
+        setEvent(newUserInfo);
+    };
+
+    const handleSubmit =(e)=> {
+        fetch('https://powerful-ravine-91496.herokuapp.com/addEvent', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(event)
+        })
+        .then(response => response.json())
+        .then(result =>{
+            if(result){
+                fieldReset();
+            }
+        })
+        .catch(err => console.log(err));
+        e.preventDefault();
+    };
+
+    const fieldReset = () => {
+        document.getElementById('title').value = '';
+        document.getElementById('date').value = '';
+        document.getElementById('description').value = '';
+    }
+
     return (
         <div className="container bg-light">
             <div className="row">
@@ -22,32 +56,32 @@ const AddEvent = () => {
                 </div>
                 <div className="col-md-9 pb-5">
                     <h3 className="m-5">Add Event</h3>
-                    <Form className="bg-white p-5 rounded">
+                    <Form onSubmit={handleSubmit} className="bg-white p-5 rounded">
                         <Row>
                             <Col>
                                 <Form.Label>Event Title</Form.Label>
-                                <Form.Control type="text" name="title" placeholder="Enter Title" />
+                                <Form.Control id="title" onBlur={handleChange} type="text" name="title" placeholder="Enter Title" required/>
                             </Col>
                             <Col>
                                 <Form.Label>Event Date</Form.Label>
-                                <Form.Control type="date" name="eventDate" placeholder="Event date" />
+                                <Form.Control id="date" onBlur={handleChange} type="date" name="date" placeholder="Event date" required/>
                             </Col>
                         </Row>
                         <br/>
                         <Row>
                             <Col>
-                                <label for="exampleFormControlTextarea1">Example textarea</label>
-                                <textarea class="form-control" placeholder="Enter Description"></textarea>
+                                <label>Example textarea</label>
+                                <textarea id="description" onBlur={handleChange} className="form-control" name="description" placeholder="Enter Description"  required></textarea>
                             </Col>
                             <Col>
                                 <br/>
                                 <Form.Label>Banner</Form.Label>
-                                <Form.Control type="file" name="description" placeholder="Enter Description" />
+                                <Form.Control type="file"/>
                             </Col>
                         </Row>
+                        <br/>
+                        <Button type="submit">Submit</Button>
                     </Form>
-                    <br/>
-                    <Button type="submit" className="ml-5">Submit</Button>
                 </div>
             </div>
         </div>
