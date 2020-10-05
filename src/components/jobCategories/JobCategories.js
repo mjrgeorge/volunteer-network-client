@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardDeck } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import './JobCategories.css';
 
 const JobCategories = (props) => {
     const jobs = props.jobs;
@@ -10,9 +11,9 @@ const JobCategories = (props) => {
     };
 
     return (
-        <div onClick={handleJobs} className="col-md-3" style={{cursor:'pointer'}}>
+        <div onClick={handleJobs} className="col-md-3">
             <CardDeck>
-                <Card className="mb-4 bg-dark">
+                <Card className="card_style mb-4 bg-dark">
                     <Card.Img variant="top" src={jobs.image} alt="Image"/>
                     <Card.Footer className="text-center text-white h4">{jobs.title}</Card.Footer>
                 </Card>

@@ -79,8 +79,9 @@ const AddEvent = () => {
                                 <Form.Control type="file"/>
                             </Col>
                         </Row>
-                        <br/>
-                        <Button type="submit">Submit</Button>
+                        <div className="text-right mt-4">
+                            <Button type="submit">Submit</Button>
+                        </div>
                     </Form>
                 </div>
             </div>

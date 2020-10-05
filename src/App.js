@@ -43,18 +43,6 @@ function App() {
             <PrivateRoute path="/event">
               <AddEvent/>
             </PrivateRoute>
-            {/* <Route path="/registration/:jobTitle">
-              <RegistrationForm/>
-            </Route>
-            <Route path="/activities">
-              <UserActivities/>
-            </Route>
-            <Route path="/volunteer">
-              <VolunteerList/>
-            </Route>
-            <Route path="/event">
-              <AddEvent/>
-            </Route> */}
             <Route exact path="/">
               <Home/>
             </Route>

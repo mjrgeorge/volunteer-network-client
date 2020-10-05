@@ -28,8 +28,10 @@ const UserActivitiesDetail = (props) => {
                     <div className="col-md-8">
                         <div className="card-body">
                             <h5>{job}</h5>
-                            <p>{new Date(date).toDateString('MM/dd/yy')}</p>
-                            <Button onClick={()=>handleDelete(`${_id}`)} variant="dark">Cancel</Button>
+                            <p className=" pb-3 text-muted">{new Date(date).toDateString('MM/dd/yy')}</p>
+                            <div className="mt-5 text-right">
+                                <Button onClick={()=>handleDelete(`${_id}`)} variant="dark">Cancel</Button>
+                            </div>
                         </div>
                     </div>
                 </div>
