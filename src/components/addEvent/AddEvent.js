@@ -52,7 +52,7 @@ const AddEvent = () => {
                     <div className="m-4">
                         <Link to="/volunteer" className="text-decoration-none"><img style={{height: '20px'}} src={user} alt="User"/> Volunteer register list </Link>
                     </div>
-                    <Button className="ml-4" variant="light"><img style={{height: '20px'}} src={plus} alt="Plus"/> Add Event </Button>
+                    <Button className="ml-4 text-info" variant="light"><img style={{height: '20px'}} src={plus} alt="Plus"/> Add Event </Button>
                 </div>
                 <div className="col-md-9 pb-5">
                     <h3 className="m-5">Add Event</h3>

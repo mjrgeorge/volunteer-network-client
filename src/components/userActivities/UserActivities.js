@@ -24,8 +24,8 @@ const UserActivities = () => {
                 <div className="col-md-7">
                     <div className="d-flex justify-content-center">
                         <Link className="text-dark m-3" to="/home">Home</Link>
-                        <Link className="text-dark m-3" to="/activities">Donation</Link>
-                        <Link className="text-dark m-3" to="/event">Event</Link>
+                        <Link className="text-dark m-3" to="/event">Donation</Link>
+                        <Link className="text-dark m-3" to="/activities">Event</Link>
                         <Link className="text-dark m-3" to="#">Blog</Link>
                         <Link className="text-dark m-3 h5 text-decoration-none" to="#">{loggedInUser.name}</Link>
                     </div>

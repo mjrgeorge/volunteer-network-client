@@ -8,7 +8,7 @@ import trash from '../../images/trash.png';
 import { UserContext } from '../../App';
 
 const VolunteerList = () => {
-    const [loggedInUser, setLoggedInUser, usersInfo, setUsersInfo] = useContext(UserContext);
+    const [, , usersInfo, setUsersInfo] = useContext(UserContext);
     useEffect(()=>{
         fetch('https://powerful-ravine-91496.herokuapp.com/allVolunteers')
         .then(response =>response.json())
@@ -42,7 +42,7 @@ const VolunteerList = () => {
                     </div>
                     <div className="mt-4">
                         <Link to="/event">
-                            <Button className="ml-1" variant="light"><img style={{height: '20px'}} src={plus} alt="Plus"/> Add Event</Button>
+                            <Button className="ml-1 text-info" variant="light"><img style={{height: '20px'}} src={plus} alt="Plus"/> Add Event</Button>
                         </Link>
                     </div>
                 </div>

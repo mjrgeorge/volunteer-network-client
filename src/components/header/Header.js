@@ -15,8 +15,8 @@ const Header = () => {
                 <div className="col-md-8">
                     <div className="d-flex justify-content-center">
                         <Link className="m-3 h5" to="/home">Home</Link>
-                        <Link className="m-3 h5" to="/activities">Donation</Link>
-                        <Link className="m-3 h5" to="/event">Event</Link>
+                        <Link className="m-3 h5" to="/event">Donation</Link>
+                        <Link className="m-3 h5" to="/activities">Event</Link>
                         <Link className="m-3 h5" to="/login">Login</Link>
                         <Link className="text-white m-3" to="/registration/jobTitle">
                             <Button className="bg-info">Register</Button>

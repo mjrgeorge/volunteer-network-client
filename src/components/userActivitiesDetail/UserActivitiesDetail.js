@@ -5,7 +5,7 @@ import { UserContext } from '../../App';
 const UserActivitiesDetail = (props) => {
     const {job, date, _id} = props.task;
 
-    const [loggedInUser, setLoggedInUser, usersInfo, setUsersInfo, jobDetails, setJobDetails] = useContext(UserContext);
+    const [, , , , jobDetails, ] = useContext(UserContext);
 
     let  selectedJob;
     if(jobDetails.length > 0){

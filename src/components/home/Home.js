@@ -4,7 +4,7 @@ import Header from '../header/Header';
 import JobCategories from '../jobCategories/JobCategories';
 
 const Home = () => {
-  const [loggedInUser, setLoggedInUser, usersInfo, setUsersInfo, jobDetails, setJobDetails] = useContext(UserContext);
+  const [, , , , jobDetails, setJobDetails] = useContext(UserContext);
   useEffect(() => {
     fetch('https://powerful-ravine-91496.herokuapp.com/allJobs')
     .then(response => response.json())

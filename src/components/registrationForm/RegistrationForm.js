@@ -53,13 +53,13 @@ const RegistrationForm = () => {
                     <form onSubmit={handleSubmit}>
                         <input onBlur={handleChange} className="form-control" type="text" name="name" defaultValue={`${user.name}`} placeholder="Full Name" required/>
                         <br/>
-                        <input onBlur={handleChange} className="form-control" type="email" name="email" defaultValue={`${user.email}`} placeholder="Email" required/>
+                        <input onBlur={handleChange} className="form-control" type="email" name="email" defaultValue={`${user.email}`} placeholder="User Name Or Email" required/>
                         <br/>
                         <input onBlur={handleChange} className="form-control" type="date" name="date" placeholder="Date" required/>
                         <br/>
                         <input onBlur={handleChange} className="form-control" type="text" name="description" placeholder="Description" required/>
                         <br/>
-                        <input onBlur={handleChange} className="form-control" type="text" name="job" defaultValue={`${jobTitle}`} placeholder="Organization books at the library" required/>
+                        <input onBlur={handleChange} className="form-control" type="text" name="job" defaultValue={`${jobTitle}`} placeholder="Selected Jobs" required/>
                         <br/>
                         <Button type="submit" block>Registration</Button>
                     </form>
