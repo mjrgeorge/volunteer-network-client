@@ -25,7 +25,7 @@ const RegistrationForm = () => {
 
     const history = useHistory();
     const handleSubmit =(e)=> {
-        fetch('http://localhost:5000/addUser', {
+        fetch('https://powerful-ravine-91496.herokuapp.com/addUser', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(user)

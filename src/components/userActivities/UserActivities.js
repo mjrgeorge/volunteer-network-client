@@ -8,7 +8,7 @@ const UserActivities = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [tasks, setTasks] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/volunteerTasks?email=${loggedInUser.email}`)
+        fetch(`https://powerful-ravine-91496.herokuapp.com/volunteerTasks?email=${loggedInUser.email}`)
         .then(response => response.json())
         .then(data=>setTasks(data))
     }, [])

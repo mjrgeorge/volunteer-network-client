@@ -10,14 +10,14 @@ import { UserContext } from '../../App';
 const VolunteerList = () => {
     const [loggedInUser, setLoggedInUser, usersInfo, setUsersInfo] = useContext(UserContext);
     useEffect(()=>{
-        fetch('http://localhost:5000/allVolunteers')
+        fetch('https://powerful-ravine-91496.herokuapp.com/allVolunteers')
         .then(response =>response.json())
         .then(data =>setUsersInfo(data))
         .catch(err =>console.log(err))
     }, []);
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://powerful-ravine-91496.herokuapp.com/delete/${id}`, {
             method: 'DELETE'
         })
         .then(response => response.json())

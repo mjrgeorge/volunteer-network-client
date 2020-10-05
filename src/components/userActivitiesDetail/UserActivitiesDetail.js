@@ -6,7 +6,7 @@ const UserActivitiesDetail = (props) => {
     console.log(props.tasks);
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://powerful-ravine-91496.herokuapp.com/delete/${id}`, {
             method: 'DELETE'
         })
         .then(response => response.json())
