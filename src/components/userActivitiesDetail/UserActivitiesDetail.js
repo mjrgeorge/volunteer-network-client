@@ -2,19 +2,34 @@ import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 
 const UserActivitiesDetail = (props) => {
-    const {job, date} = props.tasks;
+    const {job, date, _id, image} = props.tasks;
+    console.log(props.tasks);
+
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/delete/${id}`, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(result =>{
+            if(result){
+                document.getElementById(`${id}`).style.display="none";
+            }
+        })
+    };
+
     return (
-        <div className="col-md-6">
+        <div id={`${_id}`} className="col-md-6">
             <div className="card mb-3">
                 <div className="row no-gutters">
                     <div className="col-md-4">
-                    <Card.Img src='' alt="Image"/>
+                    <Card.Img src={image} alt="Image"/>
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">
                             <h5>{job}</h5>
+                            <h5>{_id}</h5>
                             <p>{new Date(date).toDateString('MM/dd/yy')}</p>
-                            <Button variant="dark">Cancel</Button>
+                            <Button onClick={()=>handleDelete(`${_id}`)} variant="dark">Cancel</Button>
                         </div>
                     </div>
                 </div>

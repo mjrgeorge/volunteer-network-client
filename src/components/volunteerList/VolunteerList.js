@@ -14,7 +14,19 @@ const VolunteerList = () => {
         .then(response =>response.json())
         .then(data =>setUsersInfo(data))
         .catch(err =>console.log(err))
-    }, [])
+    }, []);
+
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/delete/${id}`, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(result =>{
+            if(result){
+                document.getElementById(`${id}`).style.display="none";
+            }
+        })
+    };
 
     return (
         <div className="container bg-light">
@@ -33,7 +45,7 @@ const VolunteerList = () => {
                     </Link>
                 </div>
                 <div className="col-md-9">
-                    <h3 className="m-5">Volunteer register list</h3>
+                    <h3 className="m-5">Volunteer Register List: {usersInfo.length} </h3>
                     <Table style={{border: '15px solid white', borderRadius:'10px'}} striped bordered hover size="sm">
                         <thead className="text-center">
                             <tr>
@@ -47,13 +59,13 @@ const VolunteerList = () => {
                         <tbody>
                     {
                         usersInfo.map(user=>
-                            <tr>
+                            <tr id={`${user._id}`}>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{new Date(user.date).toDateString('MM/dd/yy')}</td>
                                 <td>{user.job}</td>
                                 <td className="text-center">
-                                    <img className="rounded bg-danger p-1" style={{height: '30px', cursor: 'pointer'}} src={trash} alt="User"/>
+                                    <img onClick={()=>handleDelete(`${user._id}`)} className="rounded bg-danger p-1" style={{height: '30px', cursor: 'pointer'}} src={trash} alt="User"/>
                                 </td>
                             </tr>
                             )
