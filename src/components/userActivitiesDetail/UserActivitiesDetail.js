@@ -4,8 +4,13 @@ import { UserContext } from '../../App';
 
 const UserActivitiesDetail = (props) => {
     const {job, date, _id} = props.task;
+
     const [loggedInUser, setLoggedInUser, usersInfo, setUsersInfo, jobDetails, setJobDetails] = useContext(UserContext);
-    const selectedJob = jobDetails.find(jobDetail => jobDetail.title ===job);
+
+    let  selectedJob;
+    if(jobDetails.length > 0){
+        selectedJob = jobDetails.find(jobDetail => jobDetail.title ===job);
+    }
     const handleDelete = (id) => {
         fetch(`https://powerful-ravine-91496.herokuapp.com/delete/${id}`, {
             method: 'DELETE'
@@ -23,7 +28,7 @@ const UserActivitiesDetail = (props) => {
             <div className="card mb-3">
                 <div className="row no-gutters">
                     <div className="col-md-4">
-                    <Card.Img src={selectedJob.image} alt="Image"/>
+                    {jobDetails.length > 0 && <Card.Img src={selectedJob.image} alt="Image"/>}
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">
