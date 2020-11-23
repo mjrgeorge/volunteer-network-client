@@ -1,4 +1,4 @@
-#Vvolunteer-Network
+# Volunteer-Network
 
 A responsive social event management web application.
 
